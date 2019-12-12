@@ -9,19 +9,12 @@
       font-size: 20px;
       font-weight: 600;
       display: block;
-    }
-
-    &__title:first-child {
-      margin-bottom: 15px;
+      margin-bottom: 5px;
     }
 
     &__person-info-title {
       text-transform: capitalize;
-      margin-right: 2px;
-    }
-
-    &__person-info:not(:last-child) {
-      margin-bottom: 5px;
+      margin-right: 10px;
     }
 
     &__person-info-definition {
@@ -30,6 +23,15 @@
 
     &__person-info-wrapper {
       margin-bottom: 30px;
+    }
+
+    &__planet-details {
+      font-size: 18px;
+
+      button {
+        margin-left: 5px;
+        line-height: 26px;
+      }
     }
   }
 }

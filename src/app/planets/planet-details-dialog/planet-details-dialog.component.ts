@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Planet } from '../../interfaces/planet.interface';
+import { DialogData } from './dialog-data.interface';
 
 @Component({
   selector: 'app-planet-details-dialog',
@@ -8,9 +8,8 @@ import { Planet } from '../../interfaces/planet.interface';
   styleUrls: ['./planet-details-dialog.component.scss']
 })
 export class PlanetDetailsDialogComponent {
-
   constructor(public dialogRef: MatDialogRef<PlanetDetailsDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Planet) {
+              @Inject(MAT_DIALOG_DATA) public data: DialogData) {
   }
 
   onClickOk(): void {

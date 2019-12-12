@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { concatMap, map, mergeMap, } from 'rxjs/operators';
 import { forkJoin, Observable, throwError } from 'rxjs';
+import { ToasterService } from 'angular2-toaster';
 
 import { PlanetsService } from '../planets/planets.service';
 
@@ -12,6 +14,7 @@ import { PersonDetailsPageData } from '../../interfaces/personDetailsPageData';
 
 import { ROUTES } from '../../constants/routes';
 import { URLS } from '../../constants/urls';
+import { ERROR } from '../../constants/common';
 import extractNumberFromString from '../../helpers/extractNumberFromString';
 import extractNumbersFromListOfStrings from '../../helpers/extractNumbersFromListOfStrings';
 
@@ -20,7 +23,9 @@ import extractNumbersFromListOfStrings from '../../helpers/extractNumbersFromLis
 })
 export class PeopleService {
   constructor(private http: HttpClient,
-              private planetsService: PlanetsService) {
+              private planetsService: PlanetsService,
+              private toasterService: ToasterService,
+              private router: Router) {
   }
 
   searchPeople(searchQuery: string, page = '1'): Observable<PeopleEntity> {
@@ -51,7 +56,9 @@ export class PeopleService {
           if (planetId) {
             return this.planetsService.getPlanet(planetId);
           }
-          return throwError('Something went wrong');
+          this.toasterService.pop('error', ERROR.TITLE, ERROR.MESSAGE);
+          this.router.navigate([ROUTES.PEOPLE]);
+          return throwError(ERROR.MESSAGE);
         }),
         mergeMap((planerResult: Planet) => {
           planet = planerResult;

@@ -1,6 +1,6 @@
-<div [ngClass]="{'app-list-title__sortable': item.sortable}"
+<div [ngClass]="{'app-list-title_sortable': item.sortable}"
      (click)="handleSortClick($event)">
-  <span class="app-list-title_label">{{ item?.label }}</span>
+  <span class="app-list-title__label">{{ item?.label }}</span>
   <span *ngIf="item.sortable"
         [ngClass]="'app-list-title_sorting__active'"
         class="app-list-title_sorting">

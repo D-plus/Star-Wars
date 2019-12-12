@@ -1,14 +1,15 @@
 :host {
   width: 200px;
+
   .app-list-title {
     user-select: none;
 
-    &__sortable {
+    &_sortable {
       cursor: pointer;
       user-select: none;
     }
 
-    &_label {
+    &__label {
       text-transform: capitalize;
       font-weight: 600;
       font-size: 20px;

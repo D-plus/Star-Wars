@@ -4,9 +4,12 @@ import { ROUTES } from '../../shared/constants/routes';
 import { PeopleService } from '../../shared/services/people/people.service';
 import { LoadingService } from '../../shared/services/loading/loading.service';
 import { finalize } from 'rxjs/operators';
-import { DETAILS_PAGE_FIELDS_CONFIG, PEOPLE_LIST_COLUMNS_DETAILS_PAGE } from '../../shared/constants/common';
+import { DETAILS_PAGE_FIELDS_CONFIG, DIALOG_DETAILS_FIELDS_CONFIG, PEOPLE_LIST_COLUMNS_DETAILS_PAGE } from '../../shared/constants/common';
 import { MatDialog } from '@angular/material';
-import { PlanetDetailsDialogComponent } from '../../shared/components/planet-details-dialog/planet-details-dialog.component';
+import { PlanetDetailsDialogComponent } from '../../planets/planet-details-dialog/planet-details-dialog.component';
+import { FieldsConfig } from '../../shared/interfaces/fields-config.interface';
+import { Person } from '../../shared/interfaces/person.interface';
+import { Planet } from '../../shared/interfaces/planet.interface';
 
 @Component({
   selector: 'app-person-details-page',
@@ -14,57 +17,11 @@ import { PlanetDetailsDialogComponent } from '../../shared/components/planet-det
   styleUrls: ['./person-details-page.component.scss']
 })
 export class PersonDetailsPageComponent implements OnInit {
-  // Person
-  private person = {
-    name: 'name',
-    birth_year: 'birth_year',
-    gender: 'gender',
-    created: 'created',
-    hair_color: 'hair_color',
-    eye_color: 'eye_color',
-    skin_color: 'skin_color',
-    mass: 'mass',
-    height: 'height',
-  };
-  // Planet
-  private planet = { name: 'name' };
-  // : Person[]
-  private peopleAtSamePlanet = [
-    {
-      name: 'name',
-      birth_year: 'birth_year',
-      gender: 'gender',
-      created: 'created',
-      hair_color: 'hair_color',
-      eye_color: 'eye_color',
-      skin_color: 'skin_color',
-      mass: 'mass',
-      height: 'height',
-    },
-    {
-      name: 'name',
-      birth_year: 'birth_year',
-      gender: 'gender',
-      created: 'created',
-      hair_color: 'hair_color',
-      eye_color: 'eye_color',
-      skin_color: 'skin_color',
-      mass: 'mass',
-      height: 'height',
-    },
-    {
-      name: 'name',
-      birth_year: 'birth_year',
-      gender: 'gender',
-      created: 'created',
-      hair_color: 'hair_color',
-      eye_color: 'eye_color',
-      skin_color: 'skin_color',
-      mass: 'mass',
-      height: 'height',
-    }
-  ];
-  private detailsPageFieldsConfig = DETAILS_PAGE_FIELDS_CONFIG;
+  private person: Person;
+  private planet: Planet;
+  private peopleAtSamePlanet: Person[];
+  private detailsPageFieldsConfig: FieldsConfig[] = DETAILS_PAGE_FIELDS_CONFIG;
+  private dialogDetailsConfig: FieldsConfig[] = DIALOG_DETAILS_FIELDS_CONFIG;
   private peopleListColumns = PEOPLE_LIST_COLUMNS_DETAILS_PAGE;
 
   constructor(private peopleService: PeopleService,
@@ -94,7 +51,10 @@ export class PersonDetailsPageComponent implements OnInit {
 
   openDialog(): void {
     this.dialog.open(PlanetDetailsDialogComponent, {
-      data: this.planet,
+      data: {
+        planet: this.planet,
+        dialogDetailsConfig: this.dialogDetailsConfig,
+      },
     });
   }
 

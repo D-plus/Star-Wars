@@ -4,6 +4,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ToasterModule, ToasterService } from 'angular2-toaster';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,11 +28,13 @@ import { ProgressSpinnerComponent } from './shared/components/progress-spinner/p
     BrowserAnimationsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
+    ToasterModule,
   ],
   providers: [
     PeopleService,
     PlanetsService,
     LoadingService,
+    ToasterService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: APIInterceptor,

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { AbstractObject } from '../../../interfaces/abstract-object.interface';
-import { ListTitleItem } from '../list-title/list-title-item';
+import { ListTitleItem } from '../list-title/list-title-item.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

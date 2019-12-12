@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { PersonDetailsPageComponent } from './person-details-page/person-details-page.component';
-import { PlanetDetailsDialogComponent } from '../shared/components/planet-details-dialog/planet-details-dialog.component';
+import { PlanetDetailsDialogComponent } from '../planets/planet-details-dialog/planet-details-dialog.component';
 
 
 @NgModule({

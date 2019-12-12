@@ -1,14 +1,18 @@
+@import "~src/assets/scss/colors.scss";
+
 :host {
   cursor: pointer;
   transition: background-color .5s ease .01s;
   user-select: none;
 
   &:hover {
-    background-color: #673ab7;
+    background-color: $color-purple;
   }
 
   .app-list-item {
     display: flex;
+    border-bottom: 1px $color-black dashed;
+    padding: 8px 0;
     flex-direction: row;
     outline: none;
 

@@ -1,3 +1,5 @@
+@import "~src/assets/scss/colors.scss";
+
 .app-progress-spinner {
   position: fixed;
   top: 0;
@@ -12,7 +14,7 @@
     bottom: 0;
     right: 0;
     opacity: 0.5;
-    background-color: #fff;
+    background-color: $color-white;
     filter: blur(100px);
     -webkit-filter: blur(8px);
     user-select: none;

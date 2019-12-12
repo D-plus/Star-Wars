@@ -1,0 +1,9 @@
+<div *ngIf="item"
+     class="app-details-info">
+  <span class="app-details-info__head-title">{{ title }}</span>
+  <div class="app-details-info__field"
+       *ngFor="let field of fieldsConfig">
+    <span class="app-details-info__title">{{ field?.label }}: </span>
+    <span class="app-details-info__definition">{{ item[field.value] }}</span>
+  </div>
+</div>

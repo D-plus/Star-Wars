@@ -2,15 +2,15 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 import { SortData } from '../../interfaces/sort-data.interface';
 import { PEOPLE_LIST_COLUMNS, SORT_DIRECTIONS } from '../../constants/common';
 import { AbstractObject } from '../../interfaces/abstract-object.interface';
-import { ListTitleItem } from './list-title/list-title-item';
+import { ListTitleItem } from './list-title/list-title-item.interface';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './app-list.component.html',
-  styleUrls: ['./app-list.component.scss'],
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppListComponent implements OnInit {
+export class ListComponent implements OnInit {
   private sortDirection = SORT_DIRECTIONS.ASC;
   private sortByField = PEOPLE_LIST_COLUMNS[0].value;
   private sortValuesType = 'string';

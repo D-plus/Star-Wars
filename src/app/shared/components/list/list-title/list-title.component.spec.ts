@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListTitleComponent } from './list-title.component';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
 describe('ListTitleComponent', () => {
   let component: ListTitleComponent;
@@ -8,18 +9,19 @@ describe('ListTitleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListTitleComponent ]
+      declarations: [ListTitleComponent, FaIconComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ListTitleComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    component.item = { label: 'test', value: 'test', sortable: false };
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

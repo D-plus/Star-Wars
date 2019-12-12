@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, } from '@angular/core';
-import { ListTitleItem } from './list-title-item';
+import { ListTitleItem } from './list-title-item.interface';
 import { faSortAmountDown, faSortAmountDownAlt, faSort, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { SortData } from '../../../interfaces/sort-data.interface';
 import { SORT_DIRECTIONS } from '../../../constants/common';

@@ -1,4 +1,4 @@
-import { ListTitleItem } from '../components/app-list/list-title/list-title-item';
+import { ListTitleItem } from '../components/list/list-title/list-title-item.interface';
 
 export const PEOPLE_LIST_COLUMNS: ListTitleItem[] = [
   { label: 'name', value: 'name', sortable: true, },
@@ -26,9 +26,26 @@ export const DETAILS_PAGE_FIELDS_CONFIG = [
   { label: 'height', value: 'height' },
 ];
 
+export const DIALOG_DETAILS_FIELDS_CONFIG = [
+  { label: 'name', value: 'name' },
+  { label: 'climate', value: 'climate' },
+  { label: 'diameter', value: 'diameter' },
+  { label: 'gravity', value: 'gravity' },
+  { label: 'orbital period', value: 'orbital_period' },
+  { label: 'population', value: 'population' },
+  { label: 'rotation period', value: 'rotation_period' },
+  { label: 'surface water', value: 'surface_water' },
+  { label: 'terrain', value: 'terrain' },
+];
+
 export const PEOPLE_LIST_COLUMNS_DETAILS_PAGE = [
   { label: 'name', value: 'name', sortable: true, },
   { label: 'hair color', value: 'hair_color', sortable: true, },
   { label: 'eye color', value: 'eye_color', sortable: true, },
   { label: 'gender', value: 'gender', sortable: true, },
 ];
+
+export const ERROR = {
+  TITLE: 'Oops!',
+  MESSAGE: 'Something went wrong',
+};

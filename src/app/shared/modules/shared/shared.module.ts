@@ -5,13 +5,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { AppListComponent } from '../../components/app-list/app-list.component';
-import { ListTitleComponent } from '../../components/app-list/list-title/list-title.component';
-import { ListItemComponent } from '../../components/app-list/list-item/list-item.component';
+import { ListComponent } from '../../components/list/list.component';
+import { ListTitleComponent } from '../../components/list/list-title/list-title.component';
+import { ListItemComponent } from '../../components/list/list-item/list-item.component';
 import { SortByPipe } from '../../pipes/sort-by.pipe';
+import { DetailsInfoComponent } from '../../components/details-info/details-info.component';
 
 
 @NgModule({
+  declarations: [
+    ListComponent,
+    ListTitleComponent,
+    ListItemComponent,
+    SortByPipe,
+    DetailsInfoComponent,
+  ],
   imports: [
     CommonModule,
     MatPaginatorModule,
@@ -19,21 +27,16 @@ import { SortByPipe } from '../../pipes/sort-by.pipe';
     FontAwesomeModule,
     RouterModule,
   ],
-  declarations: [
-    AppListComponent,
-    ListTitleComponent,
-    ListItemComponent,
-    SortByPipe,
-  ],
   exports: [
     CommonModule,
     MatPaginatorModule,
     MatInputModule,
     FontAwesomeModule,
-    AppListComponent,
+    ListComponent,
     ListTitleComponent,
     ListItemComponent,
     SortByPipe,
+    DetailsInfoComponent,
   ]
 })
 export class SharedModule {

@@ -1,0 +1,29 @@
+.app-details-info {
+  &__head-title {
+    font-size: 20px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  &__title:first-child {
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    margin-right: 2px;
+  }
+
+  &__field {
+    font-size: 18px;
+  }
+
+  &__field:not(:last-child) {
+    margin-bottom: 5px;
+  }
+
+  &__definition {
+    font-weight: 600;
+  }
+}

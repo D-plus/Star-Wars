@@ -1,12 +1,10 @@
 <div *ngIf="person"
      class="app-person-details-page">
   <div class="app-person-details-page__person-info-wrapper">
-    <span class="app-person-details-page__title">Person details:</span>
-    <div class="app-person-details-page__person-info"
-         *ngFor="let field of detailsPageFieldsConfig">
-      <span class="app-person-details-page__person-info-title">{{ field?.label }}: </span>
-      <span class="app-person-details-page__person-info-definition">{{ person[field.value] }}</span>
-    </div>
+    <app-details-info title="Person details:"
+                      [fieldsConfig]="detailsPageFieldsConfig"
+                      [item]="person">
+    </app-details-info>
     <div class="app-person-details-page__planet-details">
       <span class="app-person-details-page__person-info-title">Planet:</span>
       <span class="app-person-details-page__person-info-definition">{{ planet.name }}</span>

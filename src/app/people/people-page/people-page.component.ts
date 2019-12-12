@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import { PeopleService } from '../../shared/services/people/people.service';
 import { Person } from '../../shared/interfaces/person.interface';
 import { DestroyableComponent } from '../../shared/components/destroyable.component';
-import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, finalize, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { PEOPLE_LIST_COLUMNS } from '../../shared/constants/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingService } from '../../shared/services/loading/loading.service';
-import { ListTitleItem } from '../../shared/components/app-list/list-title/list-title-item';
+import { ListTitleItem } from '../../shared/components/list/list-title/list-title-item.interface';
 
 const DEBOUNCE_TIME = 700;
 
@@ -59,11 +59,13 @@ export class PeoplePageComponent extends DestroyableComponent implements OnInit 
   fetchPeople(nextSearchQuery: string, page: string): void {
     this.loadingService.start();
     this.peopleService.searchPeople(nextSearchQuery, page)
-      .pipe(takeUntil(this.onDestroy))
+      .pipe(
+        takeUntil(this.onDestroy),
+        finalize(() => this.loadingService.stop())
+      )
       .subscribe(({ count, results }) => {
         this.people = results;
         this.totalSum = count;
-        this.loadingService.stop();
         this.ref.markForCheck();
         this.updateRouteQueryParam(nextSearchQuery, page);
       });
