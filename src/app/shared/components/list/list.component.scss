@@ -25,6 +25,10 @@
       border-top: 1px $color-black dashed;
     }
 
+    &__no-content-message {
+      margin: auto;
+    }
+
     &__main {
       min-height: 350px;
       margin-bottom: 10px;

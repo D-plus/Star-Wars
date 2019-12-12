@@ -7,7 +7,7 @@
              matInput
              [value]="currentSearchValue"
              placeholder="Type name to search"
-             (input)="handleSearchInput($event.target.value)">
+             (input)="handleSearchInput($event, $event.target.value)">
     </mat-form-field>
   </div>
 
@@ -22,7 +22,10 @@
 </div>
 
 <div class="app-list__main">
-  <div *ngIf="!items.length">No content yet...</div>
+  <div *ngIf="!items.length"
+       class="app-list__no-content-message">
+    No content yet...
+  </div>
   <app-list-item *ngFor="let entity of items | sortBy:sortByField:sortDirection:sortValuesType; trackBy:trackByEntities"
                  [item]="entity"
                  [columnsList]="columnsList"

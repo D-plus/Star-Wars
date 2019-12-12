@@ -1,5 +1,12 @@
 # Star Wars 
 
+## Installation
+
+1. Clone the project
+2. In terminal from project directory run command: npm install
+3. Make sure you have Node.js installed. Version that is supported is 10.9 or greater.
+4. Use following command nad have fun :)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

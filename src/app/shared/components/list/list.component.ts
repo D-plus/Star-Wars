@@ -29,7 +29,8 @@ export class ListComponent implements OnInit {
     this.currentSearchValue = this.defaultSearchValue || '';
   }
 
-  handleSearchInput(query: string): void {
+  handleSearchInput(event, query: string): void {
+    console.log('here ', event, query);
     this.currentSearchValue = query;
     this.search.emit(query);
   }

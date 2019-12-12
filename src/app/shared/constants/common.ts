@@ -48,4 +48,5 @@ export const PEOPLE_LIST_COLUMNS_DETAILS_PAGE = [
 export const ERROR = {
   TITLE: 'Oops!',
   MESSAGE: 'Something went wrong',
+  INTERCEPTORS_MESSAGE: 'Something went wrong, try to type some person name in to the search input',
 };
