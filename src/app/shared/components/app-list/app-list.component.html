@@ -1,0 +1,42 @@
+<div class="app-list_header">
+  <div *ngIf="searchable"
+       class="app-list_header-search">
+    <mat-form-field class="example-full-width">
+      <input type="search"
+             autocomplete="off"
+             matInput
+             [value]="currentSearchValue"
+             placeholder="Type name to search"
+             (input)="handleSearchInput($event.target.value)">
+    </mat-form-field>
+  </div>
+
+  <div class="app-list_header-titles">
+    <app-list-title *ngFor="let columnField of columnsList; trackBy: trackByColumnFields"
+                    [item]="columnField"
+                    [active]="columnField.value === sortByField"
+                    [sortDirection]="sortDirection"
+                    (sortClick)="handleSortClick($event)">
+    </app-list-title>
+  </div>
+</div>
+
+<div class="app-list_main">
+  <div *ngIf="!items.length">No content yet...</div>
+  <app-list-item *ngFor="let entity of items | sortBy:sortByField:sortDirection:sortValuesType; trackBy:trackByEntities"
+                 [item]="entity"
+                 [columnsList]="columnsList"
+                 class="app-list_item">
+  </app-list-item>
+</div>
+
+<div *ngIf="paginated"
+     class="app-list_footer">
+  <mat-paginator hidePageSize
+                 pageSize="10"
+                 [length]="totalItemsCount"
+                 [pageIndex]="pageIndex"
+                 (page)="handlePageChange($event)">
+  </mat-paginator>
+</div>
+

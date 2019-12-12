@@ -1,0 +1,8 @@
+<app-list (search)="handleSearchEvent($event)"
+          (pageChange)="handlePageChange($event)"
+          [defaultSearchValue]="currentSearchQuery"
+          [items]="peopleList"
+          [columnsList]="peopleListColumns"
+          [totalItemsCount]="totalSum"
+          [pageIndex]="currentPageIndex">
+</app-list>

@@ -1,0 +1,36 @@
+:host {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .app-person-details-page {
+
+    &__title {
+      font-size: 20px;
+      font-weight: 600;
+      display: block;
+    }
+
+    &__title:first-child {
+      margin-bottom: 15px;
+    }
+
+    &__person-info-title {
+      text-transform: capitalize;
+      margin-right: 2px;
+    }
+
+    &__person-info:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &__person-info-definition {
+      font-weight: 600;
+    }
+
+    &__person-info-wrapper {
+      margin-bottom: 30px;
+    }
+  }
+}
+

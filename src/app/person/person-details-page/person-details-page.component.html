@@ -1,0 +1,31 @@
+<div *ngIf="person"
+     class="app-person-details-page">
+  <div class="app-person-details-page__person-info-wrapper">
+    <span class="app-person-details-page__title">Person details:</span>
+    <div class="app-person-details-page__person-info"
+         *ngFor="let field of detailsPageFieldsConfig">
+      <span class="app-person-details-page__person-info-title">{{ field?.label }}: </span>
+      <span class="app-person-details-page__person-info-definition">{{ person[field.value] }}</span>
+    </div>
+    <div class="app-person-details-page__planet-details">
+      <span class="app-person-details-page__person-info-title">Planet:</span>
+      <span class="app-person-details-page__person-info-definition">{{ planet.name }}</span>
+      <button (click)="openDialog()"
+              mat-button
+              color="primary">
+        Click here to see more about the planet
+      </button>
+    </div>
+  </div>
+
+  <div class="app-person-details-page__people-at-same-planet">
+    <span class="app-person-details-page__title">People at the same planet:</span>
+    <app-list [searchable]="false"
+              [paginated]="false"
+              [items]="peopleAtSamePlanet"
+              [columnsList]="peopleListColumns">
+    </app-list>
+  </div>
+</div>
+
+

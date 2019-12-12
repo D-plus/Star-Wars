@@ -1,0 +1,9 @@
+<div [ngClass]="{'app-list-title__sortable': item.sortable}"
+     (click)="handleSortClick($event)">
+  <span class="app-list-title_label">{{ item?.label }}</span>
+  <span *ngIf="item.sortable"
+        [ngClass]="'app-list-title_sorting__active'"
+        class="app-list-title_sorting">
+    <fa-icon [icon]="sortIcon"></fa-icon>
+  </span>
+</div>

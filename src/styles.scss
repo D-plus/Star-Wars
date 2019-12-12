@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap');
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #cfdcbf;
+}
+
+.mat-paginator {
+  background: none;
+}
+
+.mat-paginator,
+.mat-form-field,
+body {
+  font-family: 'Sulphur Point', sans-serif;
+}
+
+

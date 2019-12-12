@@ -1,0 +1,7 @@
+<div class="app-list-item"
+     (click)="handleListItemClick($event)">
+  <span *ngFor="let columnField of columnsList; trackBy: trackByColumnFields"
+        class="app-list-item__data">
+    {{ item[columnField.value] }}
+  </span>
+</div>
